@@ -164,4 +164,11 @@ CREATE TABLE teacher_info (
     title VARCHAR(255) COMMENT '职称',
     username VARCHAR(255) COMMENT '用户名'
 );
+
+CREATE TABLE student (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    student_number VARCHAR(20)
+);
+
 commit;
