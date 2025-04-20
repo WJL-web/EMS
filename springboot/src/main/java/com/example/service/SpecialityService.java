@@ -1,14 +1,14 @@
-package com.example.edumanagement.service;
+package com.example.service;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.example.edumanagement.common.Constants;
-import com.example.edumanagement.common.enums.ResultCodeEnum;
-import com.example.edumanagement.common.enums.RoleEnum;
-import com.example.edumanagement.entity.Account;
-import com.example.edumanagement.entity.Speciality;
-import com.example.edumanagement.exception.CustomException;
-import com.example.edumanagement.mapper.SpecialityMapper;
-import com.example.edumanagement.utils.TokenUtils;
+import com.example.common.Constants;
+import com.example.common.enums.ResultCodeEnum;
+import com.example.common.enums.RoleEnum;
+import com.example.entity.Account;
+import com.example.entity.Speciality;
+import com.example.exception.CustomException;
+import com.example.mapper.SpecialityMapper;
+import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 管理员业务处理
+ * 专业信息业务处理
  **/
 @Service
 public class SpecialityService {
