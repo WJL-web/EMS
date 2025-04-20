@@ -4,7 +4,7 @@
     <div class="manager-header">
       <div class="manager-header-left">
         <img src="@/assets/imgs/logo.png" />
-        <div class="title">教务管理系统</div>
+        <div class="title">后台管理系统</div>
       </div>
 
       <div class="manager-header-center">
@@ -36,32 +36,21 @@
         <el-menu :default-openeds="['info', 'user']" router style="border: none" :default-active="$route.path">
           <el-menu-item index="/home">
             <i class="el-icon-s-home"></i>
-            <span slot="title">系统首页</span>
+            <span slot="title">XX学校教务系统首页</span>
           </el-menu-item>
           <el-submenu index="info">
             <template slot="title">
-              <i class="el-icon-menu"></i><span>信息管理</span>
+              <i class="el-icon-menu"></i><span>信息公告</span>
             </template>
-            <el-menu-item index="/notice">公告信息</el-menu-item>
+            <el-menu-item index="/notice">教务通知</el-menu-item>
             <el-menu-item index="/examPlan">考试安排</el-menu-item>
-            <el-menu-item index="/roomPlan">教室安排</el-menu-item>
           </el-submenu>
 
-          <el-submenu index="administration">
-            <template slot="title">
-              <i class="el-icon-menu"></i><span>行政管理</span>
-            </template>
-            <el-menu-item index="/college">学院信息</el-menu-item>
-            <el-menu-item index="/speciality">专业信息</el-menu-item>
-          </el-submenu>
-          
           <el-submenu index="user">
             <template slot="title">
-              <i class="el-icon-menu"></i><span>用户管理</span>
+              <i class="el-icon-menu"></i><span>用户管理栏</span>
             </template>
             <el-menu-item index="/admin">管理员信息</el-menu-item>
-            <el-menu-item index="/teacher">教师信息</el-menu-item>
-            <el-menu-item index="/student">学生信息</el-menu-item>
           </el-submenu>
         </el-menu>
       </div>
