@@ -61,6 +61,7 @@
             </template>
             <el-menu-item index="/admin">管理员信息</el-menu-item>
             <el-menu-item index="/teacher">教师信息</el-menu-item>
+            <el-menu-item index="/student">学生信息</el-menu-item>
           </el-submenu>
         </el-menu>
       </div>
