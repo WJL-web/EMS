@@ -1,8 +1,8 @@
-package com.example.edumanagement.controller;
+package com.example.controller;
 
-import com.example.edumanagement.common.Result;
-import com.example.edumanagement.entity.Speciality;
-import com.example.edumanagement.service.SpecialityService;
+import com.example.common.Result;
+import com.example.entity.Speciality;
+import com.example.service.SpecialityService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
