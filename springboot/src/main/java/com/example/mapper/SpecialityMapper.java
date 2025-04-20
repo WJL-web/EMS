@@ -1,12 +1,12 @@
-package com.example.edumanagement.mapper;
+package com.example.mapper;
 
-import com.example.edumanagement.entity.Speciality;
+import com.example.entity.Speciality;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 /**
- * 操作admin相关数据接口
+ * 操作speciality相关数据接口
 */
 public interface SpecialityMapper {
 
