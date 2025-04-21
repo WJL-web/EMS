@@ -9,9 +9,11 @@
     </sql>
 
     <select id="selectAll" resultType="com.example.entity.Student">
-        select
-        <include refid="Base_Column_List" />
+        select student.*,college,name as collegeName,speciality.name as specialityName,classes.name as className
         from student
+        left join college on student.college_id=college.id
+        left join speciality on student.speciality_id=speciality.id
+        left join classes on student.class_id=classes.id
         <where>
             <if test="id != null"> and id= #{id}</if>
             <if test="username != null"> and username like concat('%', #{username}, '%')</if>
