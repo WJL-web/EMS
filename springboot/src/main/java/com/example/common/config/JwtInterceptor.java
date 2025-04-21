@@ -11,6 +11,8 @@ import com.example.common.enums.RoleEnum;
 import com.example.entity.Account;
 import com.example.exception.CustomException;
 import com.example.service.AdminService;
+import com.example.service.TeacherService;
+import com.example.service.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -30,6 +32,10 @@ public class JwtInterceptor implements HandlerInterceptor {
 
     @Resource
     private AdminService adminService;
+    @Resource
+    private TeacherService teacherService;
+    @Resource
+    private StudentService studentService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
@@ -52,6 +58,12 @@ public class JwtInterceptor implements HandlerInterceptor {
             // 根据userId查询数据库
             if (RoleEnum.ADMIN.name().equals(role)) {
                 account = adminService.selectById(Integer.valueOf(userId));
+            }
+            if (RoleEnum.TEACHER.name().equals(role)) {
+                account = teacherService.selectById(Integer.valueOf(userId));
+            }
+            if(RoleEnum.STUDENT.name().equals(role)){
+                account = studentService.selectById(Integer.valueOf(userId));
             }
         } catch (Exception e) {
             throw new CustomException(ResultCodeEnum.TOKEN_CHECK_ERROR);
