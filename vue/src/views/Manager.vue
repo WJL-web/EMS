@@ -56,6 +56,14 @@
             <el-menu-item index="/classes">班级信息</el-menu-item>
           </el-submenu>
 
+          <el-submenu index="teach">
+            <template slot="title">
+              <i class="el-icon-menu"></i><span>教学管理</span>
+            </template>
+            <el-menu-item index="/course">课程信息</el-menu-item>
+
+          </el-submenu>
+
           <el-submenu index="user">
             <template slot="title">
               <i class="el-icon-menu"></i><span>用户管理栏</span>
