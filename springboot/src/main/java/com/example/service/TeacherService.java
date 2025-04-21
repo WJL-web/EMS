@@ -93,20 +93,20 @@ public class TeacherService {
     /**
      * 登录
      */
-//    public Account login(Account account) {
-//        Account dbTeacher = teacherMapper.selectByUsername(account.getUsername());
-//        if (ObjectUtil.isNull(dbTeacher)) {
-//            throw new CustomException(ResultCodeEnum.USER_NOT_EXIST_ERROR);
-//        }
-//        if (!account.getPassword().equals(dbTeacher.getPassword())) {
-//            throw new CustomException(ResultCodeEnum.USER_ACCOUNT_ERROR);
-//        }
-//        // 生成token
-//        String tokenData = dbTeacher.getId() + "-" + RoleEnum.ADMIN.name();
-//        String token = TokenUtils.createToken(tokenData, dbTeacher.getPassword());
-//        dbTeacher.setToken(token);
-//        return dbTeacher;
-//    }
+    public Account login(Account account) {
+        Account dbTeacher = teacherMapper.selectByUsername(account.getUsername());
+        if (ObjectUtil.isNull(dbTeacher)) {
+            throw new CustomException(ResultCodeEnum.USER_NOT_EXIST_ERROR);
+        }
+        if (!account.getPassword().equals(dbTeacher.getPassword())) {
+            throw new CustomException(ResultCodeEnum.USER_ACCOUNT_ERROR);
+        }
+        // 生成token
+        String tokenData = dbTeacher.getId() + "-" + RoleEnum.TEACHER.name();
+        String token = TokenUtils.createToken(tokenData, dbTeacher.getPassword());
+        dbTeacher.setToken(token);
+       return dbTeacher;
+    }
 //
 //    /**
 //     * 注册
