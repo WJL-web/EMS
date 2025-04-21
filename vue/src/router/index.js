@@ -26,6 +26,7 @@ const routes = [
       { path: 'notice', name: 'Notice', meta: { name: '公告信息' }, component: () => import('../views/manager/Notice') },
       { path: 'examPlan', name: 'ExamPlan', meta: { name: '考试安排' }, component: () => import('../views/manager/ExamPlan') },
       { path: 'speciality', name: 'Speciality', meta: { name: '专业信息' }, component: () => import('../views/manager/Speciality.vue') },
+      { path: 'roomPlan', name: 'RoomPlan', meta: { name: '教室安排' }, component: () => import('../views/manager/RoomPlan') },
 
     ]
   },
