@@ -4,7 +4,7 @@
     <div class="manager-header">
       <div class="manager-header-left">
         <img src="@/assets/imgs/logo.png" />
-        <div class="title">后台管理系统</div>
+        <div class="title">教务管理系统</div>
       </div>
 
       <div class="manager-header-center">
@@ -51,6 +51,8 @@
               <i class="el-icon-menu"></i><span>用户管理栏</span>
             </template>
             <el-menu-item index="/admin">管理员信息</el-menu-item>
+            <el-menu-item index="/teacher">教师信息</el-menu-item>
+            <el-menu-item index="/student">学生信息</el-menu-item>
           </el-submenu>
         </el-menu>
       </div>
