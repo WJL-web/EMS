@@ -46,6 +46,9 @@ public class WebController {
         if(RoleEnum.TEACHER.name().equals(account.getRole())){
             account=teacherService.login(account);
         }
+        if(RoleEnum.STUDENT.name().equals(account.getRole())){
+            account=studentService.login(account);
+        }
         return Result.success(account);
     }
 
