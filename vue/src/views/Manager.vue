@@ -53,6 +53,7 @@
             </template>
             <el-menu-item index="/college">学院信息</el-menu-item>
             <el-menu-item index="/speciality">专业信息</el-menu-item>
+            <el-menu-item index="/classes">班级信息</el-menu-item>
           </el-submenu>
 
           <el-submenu index="user">
