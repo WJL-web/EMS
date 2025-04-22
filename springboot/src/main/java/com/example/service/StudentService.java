@@ -11,6 +11,7 @@ import com.example.mapper.StudentMapper;
 import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -106,16 +107,16 @@ public class StudentService {
         dbStudent.setToken(token);
         return dbStudent;
     }
-//
-//    /**
-//     * 注册
-//     */
-//    public void register(Account account) {
-//        Student student = new Student();
-//        BeanUtils.copyProperties(account, student);
-//        add(student);
-//    }
-//
+
+    /**
+     * 注册
+     */
+    public void register(Account account) {
+        Student student = new Student();
+        BeanUtils.copyProperties(account, student);
+        add(student);
+    }
+
 //    /**
 //     * 修改密码
 //     */
