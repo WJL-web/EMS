@@ -10,7 +10,6 @@ public class SpringbootApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootApplication.class, args);
-        System.out.println("欢迎使用EMS开发的教务管理系统");
     }
 
 }

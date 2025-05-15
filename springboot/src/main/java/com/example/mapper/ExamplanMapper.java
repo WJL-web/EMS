@@ -1,11 +1,12 @@
 package com.example.mapper;
 
 import com.example.entity.Examplan;
+
 import java.util.List;
 
 /**
  * 操作examplan相关数据接口
- */
+*/
 public interface ExamplanMapper {
 
     /**

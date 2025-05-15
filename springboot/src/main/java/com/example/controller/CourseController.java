@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 课程信息表前端操作接口
+ * 课程信息表表前端操作接口
  **/
 @RestController
 @RequestMapping("/course")

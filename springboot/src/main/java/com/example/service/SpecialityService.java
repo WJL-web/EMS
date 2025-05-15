@@ -1,24 +1,16 @@
 package com.example.service;
 
-import cn.hutool.core.util.ObjectUtil;
-import com.example.common.Constants;
-import com.example.common.enums.ResultCodeEnum;
-import com.example.common.enums.RoleEnum;
-import com.example.entity.Account;
 import com.example.entity.Speciality;
-import com.example.exception.CustomException;
 import com.example.mapper.SpecialityMapper;
-import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 专业信息业务处理
+ * 公告信息表业务处理
  **/
 @Service
 public class SpecialityService {
@@ -78,7 +70,5 @@ public class SpecialityService {
         List<Speciality> list = specialityMapper.selectAll(speciality);
         return PageInfo.of(list);
     }
-
-
 
 }

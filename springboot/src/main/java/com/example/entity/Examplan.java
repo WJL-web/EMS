@@ -2,10 +2,9 @@ package com.example.entity;
 
 import java.io.Serializable;
 
-/*
-*
-* */
-
+/**
+ * 考试安排表
+*/
 public class Examplan implements Serializable {
     private static final long serialVersionUID = 1L;
 

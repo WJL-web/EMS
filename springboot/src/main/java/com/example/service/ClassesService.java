@@ -1,24 +1,16 @@
 package com.example.service;
 
-import cn.hutool.core.util.ObjectUtil;
-import com.example.common.Constants;
-import com.example.common.enums.ResultCodeEnum;
-import com.example.common.enums.RoleEnum;
-import com.example.entity.Account;
 import com.example.entity.Classes;
-import com.example.exception.CustomException;
 import com.example.mapper.ClassesMapper;
-import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 管理员业务处理
+ * 班级信息表业务处理
  **/
 @Service
 public class ClassesService {
@@ -29,12 +21,16 @@ public class ClassesService {
     /**
      * 新增
      */
-    public void add(Classes classes) {classesMapper.insert(classes);}
+    public void add(Classes classes) {
+        classesMapper.insert(classes);
+    }
 
     /**
      * 删除
      */
-    public void deleteById(Integer id) {classesMapper.deleteById(id);}
+    public void deleteById(Integer id) {
+        classesMapper.deleteById(id);
+    }
 
     /**
      * 批量删除

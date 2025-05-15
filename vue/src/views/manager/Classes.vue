@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="search">
-      <el-input placeholder="请输入班级名称" style="width: 200px" v-model="username"></el-input>
+      <el-input placeholder="请输入班级名称" style="width: 200px" v-model="name"></el-input>
       <el-button type="info" plain style="margin-left: 10px" @click="load(1)">查询</el-button>
       <el-button type="warning" plain style="margin-left: 10px" @click="reset">重置</el-button>
     </div>
@@ -12,18 +12,18 @@
     </div>
 
     <div class="table">
-      <el-table :data="tableData" strip @selection-change="handleSelectionChange">
+      <el-table :data="tableData" stripe  @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55" align="center"></el-table-column>
-        <el-table-column prop="id" label="序号" width="70" align="center" sortable></el-table-column>
+        <el-table-column prop="id" label="序号" width="80" align="center" sortable></el-table-column>
         <el-table-column prop="name" label="班级名称" show-overflow-tooltip></el-table-column>
         <el-table-column prop="content" label="班级描述" show-overflow-tooltip></el-table-column>
         <el-table-column prop="specialityName" label="所属专业" show-overflow-tooltip></el-table-column>
         <el-table-column prop="teacherName" label="班主任" show-overflow-tooltip></el-table-column>
 
-        <el-table-column label="操作" align="center" width="180">
+        <el-table-column label="操作" width="180" align="center">
           <template v-slot="scope">
-            <el-button  type="primary" plain @click="handleEdit(scope.row)">编辑</el-button>
-            <el-button  type="danger" plain @click="del(scope.row.id)">删除</el-button>
+            <el-button plain type="primary" @click="handleEdit(scope.row)" size="mini">编辑</el-button>
+            <el-button plain type="danger" size="mini" @click=del(scope.row.id)>删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -43,25 +43,24 @@
 
 
     <el-dialog title="信息" :visible.sync="fromVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
-      <el-form :model="form" label-width="100px" style="padding-right: 50px" :rules="rules" ref="formRef">
-        <el-form-item label="班级名称" prop="name">
-          <el-input v-model="form.name" autocmplete="off"></el-input>
+      <el-form label-width="100px" style="padding-right: 50px" :model="form" :rules="rules" ref="formRef">
+        <el-form-item prop="name" label="班级名称">
+          <el-input v-model="form.name" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="班级描述" prop="content">
-          <el-input type="textarea" :rows="5" v-model="form.content" autocmplete="off"></el-input>
+        <el-form-item prop="content" label="班级描述">
+          <el-input type="textarea" :rows="5" v-model="form.content" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="所属专业" prop="specialityId">
-          <el-select v-model="form.specialityId" placholder="请选择专业" style="width: 100%">
-            <el-option>v-for="item in specialityData":label="item.name":value="item.id"</el-option>
+        <el-form-item prop="collegeId" label="所属专业">
+          <el-select v-model="form.specialityId" placeholder="请选择专业" style="width: 100%">
+            <el-option v-for="item in specialityData" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="班主任" prop="teacherId">
-          <el-select v-model="form.teacherId" placholder="请选择教师" style="width: 100%">
-            <el-option>v-for="item in teacherData":label="item.name":value="item.id"</el-option>
+        <el-form-item prop="teacherId" label="班主任">
+          <el-select v-model="form.teacherId" placeholder="请选择教师" style="width: 100%">
+            <el-option v-for="item in teacherData" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
-
       <div slot="footer" class="dialog-footer">
         <el-button @click="fromVisible = false">取 消</el-button>
         <el-button type="primary" @click="save">确 定</el-button>
@@ -81,18 +80,18 @@ export default {
       pageNum: 1,   // 当前的页码
       pageSize: 10,  // 每页显示的个数
       total: 0,
-      username: null,
+      name: null,
       fromVisible: false,
       form: {},
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
       rules: {
-        username: [
+        name: [
           {required: true, message: '请输入专业名称', trigger: 'blur'},
-        ]
+        ],
       },
       ids: [],
-      specialityData:[],
-      teacherData:[]
+      specialityData: [],
+      teacherData: []
     }
   },
   created() {
@@ -101,18 +100,18 @@ export default {
     this.loadTeacher()
   },
   methods: {
-    loadSpeciality(){
-      this.$request.get('/speciality/selectAll').then(res=>{
-        if(res.node === '200'){
+    loadSpeciality() {
+      this.$request.get('/speciality/selectAll').then(res => {
+        if (res.code === '200') {
           this.specialityData = res.data
         } else {
           this.$message.error(res.data)
         }
       })
     },
-    loadTeacher(){
-      this.$request.get('/teacher/selectAll').then(res=>{
-        if(res.node === '200'){
+    loadTeacher() {
+      this.$request.get('/teacher/selectAll').then(res => {
+        if (res.code === '200') {
           this.teacherData = res.data
         } else {
           this.$message.error(res.msg)
@@ -160,7 +159,7 @@ export default {
       })
     },
     handleSelectionChange(rows) {   // 当前选中的所有的行数据
-      this.ids = rows.map(v => v.id)
+      this.ids = rows.map(v => v.id)   //  [1,2]
     },
     delBatch() {   // 批量删除
       if (!this.ids.length) {
@@ -185,7 +184,7 @@ export default {
         params: {
           pageNum: this.pageNum,
           pageSize: this.pageSize,
-          username: this.username,
+          name: this.name,
         }
       }).then(res => {
         this.tableData = res.data?.list
@@ -193,15 +192,11 @@ export default {
       })
     },
     reset() {
-      this.username = null
+      this.name = null
       this.load(1)
     },
     handleCurrentChange(pageNum) {
       this.load(pageNum)
-    },
-    handleAvatarSuccess(response, file, fileList) {
-      // 把头像属性换成上传的图片的链接
-      this.form.avatar = response.data
     },
   }
 }

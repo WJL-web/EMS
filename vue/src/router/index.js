@@ -23,16 +23,15 @@ const routes = [
       { path: 'student', name: 'Student', meta: { name: '学生信息' }, component: () => import('../views/manager/Student') },
       { path: 'adminPerson', name: 'AdminPerson', meta: { name: '个人信息' }, component: () => import('../views/manager/AdminPerson') },
       { path: 'teacherPerson', name: 'TeacherPerson', meta: { name: '个人信息' }, component: () => import('../views/manager/TeacherPerson') },
-      { path: 'studentPerson', name: 'studentPerson', meta: { name: '个人信息' }, component: () => import('../views/manager/StudentPerson') },
+      { path: 'studentPerson', name: 'StudentPerson', meta: { name: '个人信息' }, component: () => import('../views/manager/StudentPerson') },
       { path: 'password', name: 'Password', meta: { name: '修改密码' }, component: () => import('../views/manager/Password') },
       { path: 'notice', name: 'Notice', meta: { name: '公告信息' }, component: () => import('../views/manager/Notice') },
-      { path: 'examPlan', name: 'ExamPlan', meta: { name: '考试安排' }, component: () => import('../views/manager/ExamPlan') },
-      { path: 'roomPlan', name: 'RoomPlan', meta: { name: '教室安排' }, component: () => import('../views/manager/RoomPlan') },
+      { path: 'examPlan', name: 'ExamPlan', meta: { name: '考试安排' }, component: () => import('../views/manager/ExamPlan.vue') },
+      { path: 'roomPlan', name: 'RoomPlan', meta: { name: '考试安排' }, component: () => import('../views/manager/RoomPlan.vue') },
+      { path: 'college', name: 'College', meta: { name: '学院信息' }, component: () => import('../views/manager/College') },
       { path: 'speciality', name: 'Speciality', meta: { name: '专业信息' }, component: () => import('../views/manager/Speciality') },
       { path: 'classes', name: 'Classes', meta: { name: '班级信息' }, component: () => import('../views/manager/Classes') },
-      { path: 'college', name: 'College', meta: { name: '学院信息' }, component: () => import('../views/manager/College') },
       { path: 'course', name: 'Course', meta: { name: '课程信息' }, component: () => import('../views/manager/Course') },
-
     ]
   },
   {

@@ -4,7 +4,7 @@
     <div class="manager-header">
       <div class="manager-header-left">
         <img src="@/assets/imgs/logo.png" />
-        <div class="title">教务管理系统</div>
+        <div class="title">湘潭大学教务管理系统</div>
       </div>
 
       <div class="manager-header-center">
@@ -33,10 +33,10 @@
     <div class="manager-main">
       <!--  侧边栏  -->
       <div class="manager-main-left">
-        <el-menu :default-openeds="['info', 'user']" router style="border: none" :default-active="$route.path">
+        <el-menu :default-openeds="[]" router style="border: none" :default-active="$route.path">
           <el-menu-item index="/home">
             <i class="el-icon-s-home"></i>
-            <span slot="title">XX学校教务系统首页</span>
+            <span slot="title">系统首页</span>
           </el-menu-item>
           <el-submenu index="info">
             <template slot="title">
@@ -46,7 +46,6 @@
             <el-menu-item index="/examPlan">考试安排</el-menu-item>
             <el-menu-item index="/roomPlan">教室安排</el-menu-item>
           </el-submenu>
-
           <el-submenu index="administration">
             <template slot="title">
               <i class="el-icon-menu"></i><span>行政管理</span>
@@ -55,18 +54,15 @@
             <el-menu-item index="/speciality">专业信息</el-menu-item>
             <el-menu-item index="/classes">班级信息</el-menu-item>
           </el-submenu>
-
           <el-submenu index="teach">
             <template slot="title">
               <i class="el-icon-menu"></i><span>教学管理</span>
             </template>
             <el-menu-item index="/course">课程信息</el-menu-item>
-
           </el-submenu>
-
           <el-submenu index="user">
             <template slot="title">
-              <i class="el-icon-menu"></i><span>用户管理栏</span>
+              <i class="el-icon-menu"></i><span>用户管理</span>
             </template>
             <el-menu-item index="/admin">管理员信息</el-menu-item>
             <el-menu-item index="/teacher">教师信息</el-menu-item>
@@ -105,10 +101,10 @@ export default {
       if (this.user.role === 'ADMIN') {
         this.$router.push('/adminPerson')
       }
-      if(this.user.role === 'TEACHER'){
+      if (this.user.role === 'TEACHER'){
         this.$router.push('/teacherPerson')
       }
-      if(this.user.role==='STUDENT'){
+      if (this.user.role === 'STUDENT'){
         this.$router.push('/studentPerson')
       }
     },

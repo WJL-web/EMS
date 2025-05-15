@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 学院信息表业务处理
+ * 公告信息表业务处理
  **/
 @Service
 public class CollegeService {

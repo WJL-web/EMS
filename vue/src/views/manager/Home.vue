@@ -5,7 +5,6 @@
     </div>
 
     <div style="display: flex; margin: 10px 0">
-
       <div style="width: 50%;" class="card">
         <div style="margin-bottom: 30px; font-size: 20px; font-weight: bold">教务通知</div>
         <div >
@@ -39,8 +38,6 @@
           </el-timeline>
         </div>
       </div>
-
-
     </div>
   </div>
 </template>
@@ -53,7 +50,8 @@ export default {
     return {
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
       notices: [],
-      examplans: []
+      examplans:[],
+
     }
   },
   created() {

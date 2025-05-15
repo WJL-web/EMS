@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 考试安排表
+ * 考试安排表业务处理
  **/
 @Service
 public class ExamplanService {

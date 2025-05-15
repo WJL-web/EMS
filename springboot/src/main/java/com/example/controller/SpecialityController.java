@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 专业信息表前端操作接口
+ * 专业信息表表前端操作接口
  **/
 @RestController
 @RequestMapping("/speciality")

@@ -2,10 +2,14 @@ package com.example.entity;
 
 import java.io.Serializable;
 
-public class Speciality implements Serializable{
+/**
+ * 专业信息表
+*/
+public class Speciality implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private int id;
+    /** ID */
+    private Integer id;
     private String name;
     private String content;
     private Integer collegeId;
@@ -13,33 +17,51 @@ public class Speciality implements Serializable{
 
     private String collegeName;
 
-    public Integer getId() {return id;}
-
-    public void setId(Integer id) {this.id = id;}
-
-    public String getName() {return name;}
-
-    public void setName(String name) {this.name = name;}
-
-    public String getContent() {return content;}
-
-    public void setContent(String content) {this.content = content;}
-
-    public Integer getCollegeId() {return collegeId;}
-
-    public void setCollegeId(Integer collegeId) {
-        this.collegeId = collegeId;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getScore() {return score;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCollegeName() {
+        return collegeName;
+    }
+
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
 
     public void setScore(Integer score) {
         this.score = score;
     }
 
-    public String getCollegeName() {return collegeName;}
+    public Integer getCollegeId() {
+        return collegeId;
+    }
 
-    public void setCollegeName(String collegeName) {
-        this.collegeName = collegeName;
+    public void setCollegeId(Integer collegeId) {
+        this.collegeId = collegeId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

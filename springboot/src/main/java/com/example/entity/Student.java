@@ -25,16 +25,6 @@ public class Student extends Account implements Serializable {
     private String className;
 
     @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Override
     public String getUsername() {
         return username;
     }
@@ -55,6 +45,16 @@ public class Student extends Account implements Serializable {
     }
 
     @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
@@ -62,6 +62,54 @@ public class Student extends Account implements Serializable {
     @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getSpecialityId() {
+        return specialityId;
+    }
+
+    public void setSpecialityId(Integer specialityId) {
+        this.specialityId = specialityId;
+    }
+
+    public String getCollegeName() {
+        return collegeName;
+    }
+
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getSpecialityName() {
+        return specialityName;
+    }
+
+    public void setSpecialityName(String specialityName) {
+        this.specialityName = specialityName;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Integer getClassId() {
+        return classId;
+    }
+
+    public void setClassId(Integer classId) {
+        this.classId = classId;
     }
 
     @Override
@@ -90,53 +138,5 @@ public class Student extends Account implements Serializable {
 
     public void setCollegeId(Integer collegeId) {
         this.collegeId = collegeId;
-    }
-
-    public Integer getSpecialityId() {
-        return specialityId;
-    }
-
-    public void setSpecialityId(Integer specialityId) {
-        this.specialityId = specialityId;
-    }
-
-    public Integer getClassId() {
-        return classId;
-    }
-
-    public void setClassId(Integer classId) {
-        this.classId = classId;
-    }
-
-    public String getCollegeName() {
-        return collegeName;
-    }
-
-    public void setCollegeName(String collegeName) {
-        this.collegeName = collegeName;
-    }
-
-    public String getSpecialityName() {
-        return specialityName;
-    }
-
-    public void setSpecialityName(String specialityName) {
-        this.specialityName = specialityName;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
     }
 }

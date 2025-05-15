@@ -11,28 +11,28 @@ import java.util.List;
 public interface StudentMapper {
 
     /**
-      * 新增
-    */
+     * 新增
+     */
     int insert(Student student);
-    
+
     /**
-      * 删除
-    */
+     * 删除
+     */
     int deleteById(Integer id);
 
     /**
-      * 修改
-    */
+     * 修改
+     */
     int updateById(Student student);
 
     /**
-      * 根据ID查询
-    */
+     * 根据ID查询
+     */
     Student selectById(Integer id);
 
     /**
-      * 查询所有
-    */
+     * 查询所有
+     */
     List<Student> selectAll(Student student);
 
     @Select("select * from student where username = #{username}")

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 班级信息表
 */
-public class Classes extends Account implements Serializable {
+public class Classes implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /** ID */
@@ -13,17 +13,57 @@ public class Classes extends Account implements Serializable {
     private String name;
     private String content;
     private Integer teacherId;
-    private Integer specialtyId;
+    private Integer specialityId;
 
     private String teacherName;
-    private String specialtyName;
-    
+    private String specialityName;
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getSpecialityName() {
+        return specialityName;
+    }
+
+    public void setSpecialityName(String specialityName) {
+        this.specialityName = specialityName;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public Integer getSpecialityId() {
+        return specialityId;
+    }
+
+    public void setSpecialityId(Integer specialityId) {
+        this.specialityId = specialityId;
+    }
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getName() {
@@ -33,25 +73,4 @@ public class Classes extends Account implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getContent() {return content;}
-
-    public void setContent(String content) {this.content = content;}
-
-    public Integer getTeacherId(){return teacherId;}
-
-    public void setTeacherId(Integer teacherId){this.teacherId = teacherId;}
-
-    public Integer getSpecialtyId(){return specialtyId;}
-
-    public void setSpecialtyId(Integer specialtyId){this.specialtyId = specialtyId;}
-
-    public String getTeacherName(){return teacherName;}
-
-    public void setTeacherName(String teacherName){this.teacherName = teacherName;}
-
-    public String getSpecialtyName(){return specialtyName;}
-
-    public void setSpecialtyName(String specialtyName){this.specialtyName = specialtyName;}
-
 }

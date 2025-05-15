@@ -27,7 +27,6 @@
         <el-table-column prop="name" label="姓名"></el-table-column>
         <el-table-column prop="phone" label="电话"></el-table-column>
         <el-table-column prop="email" label="邮箱"></el-table-column>
-
         <el-table-column prop="role" label="角色"></el-table-column>
         <el-table-column prop="title" label="职称"></el-table-column>
         <el-table-column label="操作" align="center" width="180">
@@ -80,7 +79,6 @@
         <el-form-item label="职称" prop="title">
           <el-input v-model="form.title" placeholder="职称"></el-input>
         </el-form-item>
-
       </el-form>
 
       <div slot="footer" class="dialog-footer">

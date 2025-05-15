@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 操作roomplan相关数据接口
- */
+*/
 public interface RoomplanMapper {
 
     /**

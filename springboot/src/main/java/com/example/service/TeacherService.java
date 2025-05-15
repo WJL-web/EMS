@@ -40,7 +40,7 @@ public class TeacherService {
         if (ObjectUtil.isEmpty(teacher.getName())) {
             teacher.setName(teacher.getUsername());
         }
-        teacher.setRole(RoleEnum.TEACHER.name());
+        teacher.setRole(RoleEnum.ADMIN.name());
         teacherMapper.insert(teacher);
     }
 
@@ -105,21 +105,21 @@ public class TeacherService {
         String tokenData = dbTeacher.getId() + "-" + RoleEnum.TEACHER.name();
         String token = TokenUtils.createToken(tokenData, dbTeacher.getPassword());
         dbTeacher.setToken(token);
-       return dbTeacher;
+        return dbTeacher;
     }
-//
-//    /**
-//     * 注册
-//     */
-//    public void register(Account account) {
-//        Teacher teacher = new Teacher();
-//        BeanUtils.copyProperties(account, teacher);
-//        add(teacher);
-//    }
-//
-//    /**
-//     * 修改密码
-//     */
+
+    /**
+     * 注册
+     */
+    public void register(Account account) {
+        Teacher teacher = new Teacher();
+        BeanUtils.copyProperties(account, teacher);
+        add(teacher);
+    }
+
+    /**
+     * 修改密码
+     */
     public void updatePassword(Account account) {
         Teacher dbTeacher = teacherMapper.selectByUsername(account.getUsername());
         if (ObjectUtil.isNull(dbTeacher)) {

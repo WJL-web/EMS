@@ -2,10 +2,9 @@ package com.example.entity;
 
 import java.io.Serializable;
 
-/*
-*
-* */
-
+/**
+ * 教室安排表
+*/
 public class Roomplan implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -24,20 +23,12 @@ public class Roomplan implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getContent() {
+        return content;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Integer getNum() {
@@ -48,11 +39,19 @@ public class Roomplan implements Serializable {
         this.num = num;
     }
 
-    public String getContent() {
-        return content;
+    public String getStatus() {
+        return status;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

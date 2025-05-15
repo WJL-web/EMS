@@ -12,12 +12,12 @@
     </div>
 
     <div class="table">
-      <el-table :data="tableData" strip @selection-change="handleSelectionChange">
+      <el-table :data="tableData" stripe  @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55" align="center"></el-table-column>
-        <el-table-column prop="id" label="序号" width="70" align="center" sortable></el-table-column>
+        <el-table-column prop="id" label="序号" width="80" align="center" sortable></el-table-column>
         <el-table-column prop="name" label="课程名称" show-overflow-tooltip></el-table-column>
         <el-table-column prop="type" label="课程类型" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="teacherName" label="授课教室" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="teacherName" label="授课教师" show-overflow-tooltip></el-table-column>
         <el-table-column prop="score" label="学分" show-overflow-tooltip></el-table-column>
         <el-table-column prop="num" label="上课人数" show-overflow-tooltip></el-table-column>
         <el-table-column prop="room" label="上课教室" show-overflow-tooltip></el-table-column>
@@ -25,10 +25,10 @@
         <el-table-column prop="segment" label="第几大节" show-overflow-tooltip></el-table-column>
         <el-table-column prop="status" label="上课状态" show-overflow-tooltip></el-table-column>
 
-        <el-table-column label="操作" align="center" width="180">
+        <el-table-column label="操作" width="180" align="center">
           <template v-slot="scope">
-            <el-button  type="primary" plain @click="handleEdit(scope.row)">编辑</el-button>
-            <el-button  type="danger" plain @click="del(scope.row.id)">删除</el-button>
+            <el-button plain type="primary" @click="handleEdit(scope.row)" size="mini">编辑</el-button>
+            <el-button plain type="danger" size="mini" @click=del(scope.row.id)>删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -48,60 +48,58 @@
 
 
     <el-dialog title="信息" :visible.sync="fromVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
-      <el-form :model="form" label-width="100px" style="padding-right: 50px" :rules="rules" ref="formRef">
-        <el-form-item label="课程名称" prop="name">
-          <el-input v-model="form.name" autocmplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="课程类型" prop="type">
-          <el-select v-model="form.type" placholder="请选择类型" style="width: 100%">
-            <el-option>label="必修"value="必修"</el-option>
-            <el-option>label="选修"value="选修"</el-option>
+      <el-form label-width="100px" style="padding-right: 50px" :model="form" :rules="rules" ref="formRef">
+        <el-form-item prop="name" label="课程名称">
+          <el-input v-model="form.name" autocomplete="off" :disabled="user.role !== 'ADMIN'"></el-input>
+        </el-form-item>'
+        <el-form-item prop="type" label="课程类型">
+          <el-select v-model="form.type" placeholder="请选择类型" style="width: 100%" :disabled="user.role !== 'ADMIN'">
+            <el-option label="必修" value="必修"></el-option>
+            <el-option label="选修" value="选修"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="授课教师" prop="teacherId">
-          <el-select v-model="form.teacherId" placholder="请选择教师" style="width: 100%">
-            <el-option>v-for="item in teacherData" :label="item.name":value="item.id"</el-option>
+        <el-form-item prop="teacherId" label="授课教师">
+          <el-select v-model="form.teacherId" placeholder="请选择教师" style="width: 100%" :disabled="user.role !== 'ADMIN'">
+            <el-option v-for="item in teacherData" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="学分" prop="score" >
-          <el-input> v-model="form.score" autocomplete="off"</el-input>
+        <el-form-item prop="score" label="学分">
+          <el-input v-model="form.score" autocomplete="off" :disabled="user.role !== 'ADMIN'"></el-input>
         </el-form-item>
-        <el-form-item label="上课人数" prop="num">
-          <el-input> v-model="form.num" autocomplete="off"</el-input>
+        <el-form-item prop="num" label="上课人数">
+          <el-input v-model="form.num" autocomplete="off" :disabled="user.role !== 'ADMIN'"></el-input>
         </el-form-item>
-        <el-form-item label="上课教室" prop="room">
-          <el-input> v-model="form.room" autocomplete="off"</el-input>
+        <el-form-item prop="room" label="上课教室">
+          <el-input v-model="form.room" autocomplete="off" :disabled="user.role !== 'ADMIN'"></el-input>
         </el-form-item>
-        <el-form-item label="周几" prop="week">
-          <el-select v-model="form.week" placholder="请选择日期" style="width: 100%">
-            <el-option>label="星期一"value="星期一"</el-option>
-            <el-option>label="星期二"value="星期二"</el-option>
-            <el-option>label="星期三"value="星期三"</el-option>
-            <el-option>label="星期四"value="星期四"</el-option>
-            <el-option>label="星期五"value="星期五"</el-option>
-            <el-option>label="星期六"value="星期六"</el-option>
-            <el-option>label="星期日"value="星期日"</el-option>
+        <el-form-item prop="week" label="周几">
+          <el-select v-model="form.week" placeholder="请选择类型" style="width: 100%" :disabled="user.role !== 'ADMIN'">
+            <el-option label="星期一" value="星期一"></el-option>
+            <el-option label="星期二" value="星期二"></el-option>
+            <el-option label="星期三" value="星期三"></el-option>
+            <el-option label="星期四" value="星期四"></el-option>
+            <el-option label="星期五" value="星期五"></el-option>
+            <el-option label="星期六" value="星期六"></el-option>
+            <el-option label="星期日" value="星期日"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="第几大节" prop="segment">
-          <el-select v-model="form.segment" placholder="请选择日期" style="width: 100%">
-            <el-option>label="第一大节(08:00 ~ 09:30)"value="第一大节(08:00 ~ 09:30)"</el-option>
-            <el-option>label="第二大节(09:00 ~ 12:00)"value="第二大节(09:00 ~ 12:00)"</el-option>
-            <el-option>label="第三大节(14:00 ~ 15:30)"value="第三大节(14:00 ~ 15:30)"</el-option>
-            <el-option>label="第四大节(15:40 ~ 17:00)"value="第四大节(15:40 ~ 17:00)"</el-option>
-            <el-option>label="第五大节(18:00 ~ 20:00)"value="第五大节(18:00 ~ 20:00)"</el-option>
+        <el-form-item prop="segment" label="第几大节">
+          <el-select v-model="form.segment" placeholder="请选择类型" style="width: 100%" :disabled="user.role !== 'ADMIN'">
+            <el-option label="第一大节（08:00 ~ 09:30）" value="第一大节（08:00 ~ 09:30）"></el-option>
+            <el-option label="第二大节（09:40 ~ 12:00）" value="第二大节（09:40 ~ 12:00）"></el-option>
+            <el-option label="第三大节（14:00 ~ 15:30）" value="第三大节（14:00 ~ 15:30）"></el-option>
+            <el-option label="第四大节（15:40 ~ 17:00）" value="第四大节（15:40 ~ 17:00）"></el-option>
+            <el-option label="第五大节（18:00 ~ 20:00）" value="第五大节（18:00 ~ 20:00）"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="上课状态" prop="status">
-          <el-select v-model="form.status" placholder="请选择日期" style="width: 100%">
-            <el-option>label="未开课"value="未开课"</el-option>
-            <el-option>label="已开课"value="已开课"</el-option>
-            <el-option>label="已结课"value="已结课"</el-option>
-
+        <el-form-item prop="status" label="上课状态">
+          <el-select v-model="form.status" placeholder="请选择类型" style="width: 100%">
+            <el-option label="未开课" value="未开课"></el-option>
+            <el-option label="已开课" value="已开课"></el-option>
+            <el-option label="已结课" value="已结课"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
-
       <div slot="footer" class="dialog-footer">
         <el-button @click="fromVisible = false">取 消</el-button>
         <el-button type="primary" @click="save">确 定</el-button>
@@ -121,17 +119,17 @@ export default {
       pageNum: 1,   // 当前的页码
       pageSize: 10,  // 每页显示的个数
       total: 0,
-      username: null,
+      name: null,
       fromVisible: false,
       form: {},
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
       rules: {
-        username: [
+        name: [
           {required: true, message: '请输入课程名称', trigger: 'blur'},
-        ]
+        ],
       },
       ids: [],
-      teacherData:[]
+      teacherData: []
     }
   },
   created() {
@@ -139,16 +137,15 @@ export default {
     this.loadTeacher()
   },
   methods: {
-    loadTeacher(){
-      this.$request.get('/teacher/selectAll').then(res=>{
-        if(res.code === '200'){
-          this.specialityData = res.data
+    loadTeacher() {
+      this.$request.get('/teacher/selectAll').then(res => {
+        if (res.code === '200') {
+          this.teacherData = res.data
         } else {
-          this.$message.error(res.msq)
+          this.$message.error(res.msg)
         }
       })
     },
-
     handleAdd() {   // 新增数据
       this.form = {}  // 新增数据的时候清空数据
       this.fromVisible = true   // 打开弹窗
@@ -190,7 +187,7 @@ export default {
       })
     },
     handleSelectionChange(rows) {   // 当前选中的所有的行数据
-      this.ids = rows.map(v => v.id)
+      this.ids = rows.map(v => v.id)   //  [1,2]
     },
     delBatch() {   // 批量删除
       if (!this.ids.length) {
@@ -215,7 +212,7 @@ export default {
         params: {
           pageNum: this.pageNum,
           pageSize: this.pageSize,
-          username: this.username,
+          name: this.name,
         }
       }).then(res => {
         this.tableData = res.data?.list
@@ -223,15 +220,11 @@ export default {
       })
     },
     reset() {
-      this.username = null
+      this.name = null
       this.load(1)
     },
     handleCurrentChange(pageNum) {
       this.load(pageNum)
-    },
-    handleAvatarSuccess(response, file, fileList) {
-      // 把头像属性换成上传的图片的链接
-      this.form.avatar = response.data
     },
   }
 }

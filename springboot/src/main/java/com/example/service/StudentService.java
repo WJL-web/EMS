@@ -96,7 +96,7 @@ public class StudentService {
     public Account login(Account account) {
         Account dbStudent = studentMapper.selectByUsername(account.getUsername());
         if (ObjectUtil.isNull(dbStudent)) {
-           throw new CustomException(ResultCodeEnum.USER_NOT_EXIST_ERROR);
+            throw new CustomException(ResultCodeEnum.USER_NOT_EXIST_ERROR);
         }
         if (!account.getPassword().equals(dbStudent.getPassword())) {
             throw new CustomException(ResultCodeEnum.USER_ACCOUNT_ERROR);
@@ -118,14 +118,14 @@ public class StudentService {
     }
 
     /**
-    * 修改密码
+     * 修改密码
      */
     public void updatePassword(Account account) {
-       Student dbStudent = studentMapper.selectByUsername(account.getUsername());
+        Student dbStudent = studentMapper.selectByUsername(account.getUsername());
         if (ObjectUtil.isNull(dbStudent)) {
             throw new CustomException(ResultCodeEnum.USER_NOT_EXIST_ERROR);
         }
-      if (!account.getPassword().equals(dbStudent.getPassword())) {
+        if (!account.getPassword().equals(dbStudent.getPassword())) {
             throw new CustomException(ResultCodeEnum.PARAM_PASSWORD_ERROR);
         }
         dbStudent.setPassword(account.getNewPassword());

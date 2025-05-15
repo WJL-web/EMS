@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 管理员前端操作接口
+ * 班级信息表表前端操作接口
  **/
 @RestController
 @RequestMapping("/classes")

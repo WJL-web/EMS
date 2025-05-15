@@ -21,11 +21,11 @@ public class WebController {
 
     @Resource
     private AdminService adminService;
-     @Resource
+    @Resource
     private TeacherService teacherService;
     @Resource
     private StudentService studentService;
-    
+
     @GetMapping("/")
     public Result hello() {
         return Result.success("访问成功");
@@ -44,10 +44,10 @@ public class WebController {
             account = adminService.login(account);
         }
         if(RoleEnum.TEACHER.name().equals(account.getRole())){
-            account=teacherService.login(account);
+            account = teacherService.login(account);
         }
         if(RoleEnum.STUDENT.name().equals(account.getRole())){
-            account=studentService.login(account);
+            account = studentService.login(account);
         }
         return Result.success(account);
     }

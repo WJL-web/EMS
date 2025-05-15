@@ -12,7 +12,7 @@ public class Course implements Serializable {
     private Integer id;
     private String name;
     private String type;
-    private String teacherId;
+    private Integer teacherId;
     private Integer score;
     private Integer num;
     private String room;
@@ -30,19 +30,67 @@ public class Course implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 
-    public String getTeacherId() {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getSegment() {
+        return segment;
+    }
+
+    public void setSegment(String segment) {
+        this.segment = segment;
+    }
+
+    public String getWeek() {
+        return week;
+    }
+
+    public void setWeek(String week) {
+        this.week = week;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Integer getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
 
@@ -54,59 +102,11 @@ public class Course implements Serializable {
         this.type = type;
     }
 
-    public Integer getScore() {
-        return score;
+    public String getName() {
+        return name;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
-    }
-
-    public String getRoom() {
-        return room;
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
-    }
-
-    public String getWeek() {
-        return week;
-    }
-
-    public void setWeek(String week) {
-        this.week = week;
-    }
-
-    public String getSegment() {
-        return segment;
-    }
-
-    public void setSegment(String segment) {
-        this.segment = segment;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getTeacherName() {
-        return teacherName;
-    }
-
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

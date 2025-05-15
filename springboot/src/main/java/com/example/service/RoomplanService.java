@@ -3,7 +3,6 @@ package com.example.service;
 import cn.hutool.core.date.DateUtil;
 import com.example.entity.Roomplan;
 import com.example.mapper.RoomplanMapper;
-import com.example.mapper.RoomplanMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 考试安排表
+ * 教室安排表业务处理
  **/
 @Service
 public class RoomplanService {
