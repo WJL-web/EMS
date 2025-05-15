@@ -26,6 +26,7 @@
           <el-input v-model="user.email" placeholder="邮箱"></el-input>
         </el-form-item>
         <el-form-item label="职称" prop="title">
+<<<<<<< HEAD
           <el-input v-model="user.email" disabled></el-input>
         </el-form-item>
         <div style="text-align: center; margin-bottom: 20px">
@@ -105,4 +106,8 @@ export default {
   display: block;
   border-radius: 50%;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 3d6d7ea3646ee1bde423023ae714b1d3dd86eb55

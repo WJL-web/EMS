@@ -105,4 +105,5 @@ export default {
   display: block;
   border-radius: 50%;
 }
+<<<<<<< HEAD
 </style>
