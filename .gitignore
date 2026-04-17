@@ -1,0 +1,31 @@
+# ==============================
+# Vue 前端忽略项
+# ==============================
+manager/vue/node_modules/
+manager/vue/dist/
+manager/vue/.env.local
+manager/vue/.env.*.local 
+manager/vue/npm-debug.log*
+manager/vue/yarn-debug.log*
+manager/vue/yarn-error.log*
+
+# ==============================
+# Spring Boot 后端忽略项
+# ==============================
+manager/springboot/target/
+manager/springboot/!.mvn/wrapper/maven-wrapper.jar
+manager/springboot/log/
+*.class
+
+# ==============================
+# IDE 和操作系统忽略项
+# ==============================
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
