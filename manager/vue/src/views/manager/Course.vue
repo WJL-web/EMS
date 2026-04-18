@@ -60,7 +60,7 @@
         </el-form-item>
         <el-form-item prop="teacherId" label="授课教师">
           <el-select v-model="form.teacherId" placeholder="请选择教师" style="width: 100%" :disabled="user.role !== 'ADMIN'">
-            <el-option v-for="item in teacherData" :label="item.name" :value="item.id"></el-option>
+            <el-option v-for="item in teacherData" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item prop="score" label="学分">

@@ -26,7 +26,7 @@
           <el-input v-model="user.email" placeholder="邮箱"></el-input>
         </el-form-item>
         <el-form-item label="职称" prop="title">
-          <el-input v-model="user.email" disabled></el-input>
+          <el-input v-model="user.title" disabled></el-input>
         </el-form-item>
         <div style="text-align: center; margin-bottom: 20px">
           <el-button type="primary" @click="update">保 存</el-button>
@@ -74,20 +74,20 @@ export default {
 </script>
 
 <style scoped>
-/deep/.el-form-item__label {
+::v-deep .el-form-item__label {
   font-weight: bold;
 }
-/deep/.el-upload {
+::v-deep .el-upload {
   border-radius: 50%;
 }
-/deep/.avatar-uploader .el-upload {
+::v-deep .avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
 }
-/deep/.avatar-uploader .el-upload:hover {
+::v-deep .avatar-uploader .el-upload:hover {
   border-color: #409EFF;
 }
 .avatar-uploader-icon {

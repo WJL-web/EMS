@@ -73,17 +73,17 @@
         </el-form-item>
         <el-form-item label="学院" prop="collegeId">
           <el-select v-model="form.collegeId" placeholder="请选择学院" style="width: 100%">
-            <el-option v-for="item in collegeData" :label="item.name" :value="item.id"></el-option>
+            <el-option v-for="item in collegeData" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="专业" prop="specialityId">
           <el-select v-model="form.specialityId" placeholder="请选择专业" style="width: 100%">
-            <el-option v-for="item in specialityData" :label="item.name" :value="item.id"></el-option>
+            <el-option v-for="item in specialityData" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="班级" prop="classId">
           <el-select v-model="form.classId" placeholder="请选择班级" style="width: 100%">
-            <el-option v-for="item in classData" :label="item.name" :value="item.id"></el-option>
+            <el-option v-for="item in classData" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
       </el-form>

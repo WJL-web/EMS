@@ -55,7 +55,7 @@
         </el-form-item>
         <el-form-item prop="collegeId" label="所属学院">
           <el-select v-model="form.collegeId" placeholder="请选择学院" style="width: 100%">
-            <el-option v-for="item in collegeData" :label="item.name" :value="item.id"></el-option>
+            <el-option v-for="item in collegeData" :key="item.id" :label="item.name" :value="item.id"></el-option>
           </el-select>
         </el-form-item>
       </el-form>

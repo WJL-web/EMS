@@ -67,8 +67,8 @@
         <el-form-item label="用户名" prop="username">
           <el-input v-model="form.username" placeholder="用户名"></el-input>
         </el-form-item>
-        <el-form-item label="初始密码" prop="password">
-          <el-input v-model="form.password" placeholder="未输入则使用默认密码123"></el-input>
+        <el-form-item label="密码" prop="password">
+          <el-input v-model="form.password" placeholder="不修改请留空，新增未填则默认系统密码"></el-input>
         </el-form-item>
         <el-form-item label="姓名" prop="name">
           <el-input v-model="form.name" placeholder="姓名"></el-input>
@@ -125,6 +125,7 @@ export default {
     },
     handleEdit(row) {   // 编辑数据
       this.form = JSON.parse(JSON.stringify(row))  // 给form对象赋值  注意要深拷贝数据
+      this.form.password = null // 清空密码字段以防编辑时覆盖，并且防止展示MD5密文
       this.fromVisible = true   // 打开弹窗
     },
     save() {   // 保存按钮触发的逻辑  它会触发新增或者更新
